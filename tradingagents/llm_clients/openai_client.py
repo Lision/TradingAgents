@@ -153,7 +153,7 @@ _PROVIDER_BASE_URL = {
     "qwen":       "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
     "qwen-cn":    "https://dashscope.aliyuncs.com/compatible-mode/v1",
     "glm":        "https://api.z.ai/api/paas/v4/",
-    "glm-cn":     "https://open.bigmodel.cn/api/paas/v4/",
+    "glm-cn":     "https://open.bigmodel.cn/api/coding/paas/v4/",
     "minimax":    "https://api.minimax.io/v1",
     "minimax-cn": "https://api.minimaxi.com/v1",
     "openrouter": "https://openrouter.ai/api/v1",
