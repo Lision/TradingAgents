@@ -62,6 +62,20 @@ def test_case_insensitive_lookup():
     assert get_api_key_env("QWEN-CN") == "DASHSCOPE_CN_API_KEY"
 
 
+def test_glm_cn_region_uses_coding_plan_endpoint():
+    from cli import utils as cli_utils
+
+    def select_bigmodel(*args, **kwargs):
+        bigmodel_choice = kwargs["choices"][1]
+        return type("Prompt", (), {"ask": staticmethod(lambda: bigmodel_choice.value)})()
+
+    with patch.object(cli_utils.questionary, "select", side_effect=select_bigmodel):
+        provider, base_url = cli_utils.ask_glm_region()
+
+    assert provider == "glm-cn"
+    assert base_url == "https://open.bigmodel.cn/api/coding/paas/v4/"
+
+
 # ---- ensure_api_key behavior ---------------------------------------------
 
 

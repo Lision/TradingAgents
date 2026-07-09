@@ -352,7 +352,7 @@ def _llm_provider_table() -> list[tuple[str, str, str | None]]:
         ("xAI", "xai", "https://api.x.ai/v1"),
         ("DeepSeek", "deepseek", "https://api.deepseek.com"),
         ("Qwen", "qwen", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"),
-        ("GLM", "glm", "https://open.bigmodel.cn/api/paas/v4/"),
+        ("GLM", "glm", "https://api.z.ai/api/paas/v4/"),
         ("MiniMax", "minimax", "https://api.minimax.io/v1"),
         ("OpenRouter", "openrouter", "https://openrouter.ai/api/v1"),
         ("Mistral", "mistral", "https://api.mistral.ai/v1"),
@@ -505,7 +505,7 @@ def ask_glm_region() -> tuple[str, str]:
             ),
             questionary.Choice(
                 "BigModel — open.bigmodel.cn (China, uses ZHIPU_CN_API_KEY)",
-                value=("glm-cn", "https://open.bigmodel.cn/api/paas/v4/"),
+                value=("glm-cn", "https://open.bigmodel.cn/api/coding/paas/v4/"),
             ),
         ],
         style=questionary.Style([
