@@ -19,6 +19,7 @@ class TestProviderDefaultUrl(unittest.TestCase):
         self.assertEqual(provider_default_url("openai"), "https://api.openai.com/v1")
         self.assertEqual(provider_default_url("DeepSeek"), "https://api.deepseek.com")
         self.assertIsNone(provider_default_url("google"))  # uses SDK default
+        self.assertIsNone(provider_default_url("codex"))  # uses local app-server
 
     def test_unknown_provider_returns_none(self):
         from cli.utils import provider_default_url

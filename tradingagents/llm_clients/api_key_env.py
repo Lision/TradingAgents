@@ -13,6 +13,8 @@ from __future__ import annotations
 
 PROVIDER_API_KEY_ENV: dict[str, str | None] = {
     "openai":     "OPENAI_API_KEY",
+    # Codex authenticates through the local `codex login` ChatGPT session.
+    "codex":      None,
     "anthropic":  "ANTHROPIC_API_KEY",
     "google":     "GOOGLE_API_KEY",
     "azure":      "AZURE_OPENAI_API_KEY",

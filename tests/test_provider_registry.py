@@ -19,6 +19,7 @@ def test_registry_membership():
     assert is_openai_compatible("openai_compatible")  # the generic endpoint
     # native (different API) clients are intentionally NOT in the registry
     assert not is_openai_compatible("anthropic")
+    assert not is_openai_compatible("codex")
     assert not is_openai_compatible("google")
     assert not is_openai_compatible("azure")
 

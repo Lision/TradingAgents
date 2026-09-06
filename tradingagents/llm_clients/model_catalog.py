@@ -79,6 +79,19 @@ _MINIMAX_MODELS: dict[str, list[ModelOption]] = {
 
 
 MODEL_OPTIONS: ProviderModeOptions = {
+    # ChatGPT-subscription models exposed by the local Codex app-server.
+    "codex": {
+        "quick": [
+            ("GPT-5.6 Luna - Fast and affordable", "gpt-5.6-luna"),
+            ("GPT-5.6 Terra - Balanced everyday coding", "gpt-5.6-terra"),
+            ("GPT-5.6 Sol - Frontier agentic reasoning", "gpt-5.6-sol"),
+        ],
+        "deep": [
+            ("GPT-5.6 Sol - Frontier agentic reasoning", "gpt-5.6-sol"),
+            ("GPT-5.6 Terra - Balanced everyday coding", "gpt-5.6-terra"),
+            ("GPT-5.6 Luna - Fast and affordable", "gpt-5.6-luna"),
+        ],
+    },
     "openai": {
         "quick": [
             ("GPT-5.4 Mini - Fast, strong coding and tool use", "gpt-5.4-mini"),
