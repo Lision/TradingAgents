@@ -168,7 +168,7 @@ export DEEPSEEK_API_KEY=...        # DeepSeek
 export DASHSCOPE_API_KEY=...       # Qwen (international, dashscope-intl.aliyuncs.com)
 export DASHSCOPE_CN_API_KEY=...    # Qwen (China, dashscope.aliyuncs.com)
 export ZHIPU_API_KEY=...           # GLM via Z.AI (international)
-export ZHIPU_CN_API_KEY=...        # GLM via BigModel (China, open.bigmodel.cn)
+export ZHIPU_CN_API_KEY=...        # GLM Coding Plan via BigModel (mainland China)
 export MINIMAX_API_KEY=...         # MiniMax (global, api.minimax.io)
 export MINIMAX_CN_API_KEY=...      # MiniMax (China, api.minimaxi.com)
 export OPENROUTER_API_KEY=...      # OpenRouter
@@ -180,6 +180,27 @@ export FRED_API_KEY=...            # FRED macro data (free, optional)
 export ALPHA_VANTAGE_API_KEY=...   # Alpha Vantage
 export TYPESAFE_API_KEY=...        # Jev social-post screening (optional)
 ```
+
+For GLM Coding Plan in mainland China, choose **GLM → BigModel Coding Plan** in
+the CLI, or configure it through environment variables:
+
+```bash
+export ZHIPU_CN_API_KEY=your_coding_plan_key
+export TRADINGAGENTS_LLM_PROVIDER=glm-cn
+export TRADINGAGENTS_DEEP_THINK_LLM=glm-4.7
+export TRADINGAGENTS_QUICK_THINK_LLM=glm-4.5-air
+```
+
+The `glm-cn` provider defaults to
+`https://open.bigmodel.cn/api/coding/paas/v4/`, the OpenAI Chat Completions
+endpoint in the [official Coding Plan guide](https://docs.bigmodel.cn/cn/coding-plan/quick-start).
+For Python usage, set `llm_provider="glm-cn"`, your `deep_think_llm` and
+`quick_think_llm`, and `backend_url=None`. Choose models available to your plan;
+the CLI also accepts a custom model ID. An explicit `backend_url` or
+`TRADINGAGENTS_LLM_BACKEND_URL` takes precedence: clear an old override to use
+Coding Plan, or set `https://open.bigmodel.cn/api/paas/v4/` for the standard
+BigModel API. The international `glm` provider uses `ZHIPU_API_KEY` and
+`https://api.z.ai/api/paas/v4/`.
 
 For Azure OpenAI, copy `.env.enterprise.example` to `.env.enterprise` and fill in your credentials.
 

@@ -385,6 +385,9 @@ def _llm_provider_table() -> list[tuple[str, str, str | None]]:
 def provider_default_url(provider_key: str) -> str | None:
     """Return the default backend URL for a provider key, or None if unknown."""
     key = provider_key.lower()
+    # Mainland GLM is selected through the region prompt, not the main menu.
+    if key == "glm-cn":
+        return "https://open.bigmodel.cn/api/coding/paas/v4/"
     for _, pk, url in _llm_provider_table():
         if pk == key:
             return url
@@ -515,7 +518,7 @@ def ask_gemini_thinking_config() -> str | None:
 
 
 def ask_glm_region() -> tuple[str, str]:
-    """Ask which GLM platform (Z.AI international vs BigModel China) to use.
+    """Ask which GLM platform (Z.AI vs BigModel China Coding Plan) to use.
 
     Zhipu serves the same GLM models under two brands with separate
     accounts; keys aren't interchangeable. Returns (provider_key, backend_url).
@@ -528,8 +531,8 @@ def ask_glm_region() -> tuple[str, str]:
                 value=("glm", "https://api.z.ai/api/paas/v4/"),
             ),
             questionary.Choice(
-                "BigModel — open.bigmodel.cn (China, uses ZHIPU_CN_API_KEY)",
-                value=("glm-cn", "https://open.bigmodel.cn/api/paas/v4/"),
+                "BigModel Coding Plan — open.bigmodel.cn (mainland China, uses ZHIPU_CN_API_KEY)",
+                value=("glm-cn", provider_default_url("glm-cn")),
             ),
         ],
         style=questionary.Style([

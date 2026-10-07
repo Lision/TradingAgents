@@ -32,7 +32,7 @@ def test_registry_membership():
     ("qwen", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1", NormalizedChatOpenAI, False),
     ("qwen-cn", "https://dashscope.aliyuncs.com/compatible-mode/v1", NormalizedChatOpenAI, False),
     ("glm", "https://api.z.ai/api/paas/v4/", NormalizedChatOpenAI, False),
-    ("glm-cn", "https://open.bigmodel.cn/api/paas/v4/", NormalizedChatOpenAI, False),
+    ("glm-cn", "https://open.bigmodel.cn/api/coding/paas/v4/", NormalizedChatOpenAI, False),
     ("minimax", "https://api.minimax.io/v1", MinimaxChatOpenAI, False),
     ("minimax-cn", "https://api.minimaxi.com/v1", MinimaxChatOpenAI, False),
     ("openrouter", "https://openrouter.ai/api/v1", NormalizedChatOpenAI, False),
